@@ -194,8 +194,8 @@ $ mysql -u root -pNetwork7932!
 ```
 
 ```
-> CREATE DATABASE tutorial;
-> GRANT ALL PRIVILEGES ON laravel.* TO laravel@localhost IDENTIFIED BY 'Network7932!';
+> CREATE DATABASE blog;
+> GRANT ALL PRIVILEGES ON blog.* TO laravel@localhost IDENTIFIED BY 'Network7932!';
 ```
 
 ### .mylogin.cnf

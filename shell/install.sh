@@ -13,6 +13,7 @@ yum -y install --enablerepo=remi-php71 php
 
 # PHP拡張ライブラリ Laravel
 yum -y install --enablerepo=remi-php71 php-pdo php-tokenizer php-openssl php-mbstring php-xml
+yum -y install --enablerepo=remi-php71 php-mysqlnd
 
 # Composer
 yum -y install --enablerepo=remi-php71 composer
