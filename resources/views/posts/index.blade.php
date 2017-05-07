@@ -6,7 +6,7 @@
 
 @foreach ($posts as $post)
     <ul>
-        <li>{{ $post->title }}</li>
+        <li>{{ link_to_route('posts.show', $post->title, [$post->id]) }}</li>
     </ul>
 @endforeach
 
