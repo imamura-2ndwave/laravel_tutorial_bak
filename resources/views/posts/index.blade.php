@@ -8,6 +8,7 @@
         @foreach ($posts as $post)
             <li>
                 {{ link_to_route('posts.show', $post->title, [$post->id]) }}
+                {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
             </li>
         @endforeach
         <li>
