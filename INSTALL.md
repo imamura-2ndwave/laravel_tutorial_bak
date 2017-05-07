@@ -169,4 +169,17 @@ EnableSendfile off
 
 ### Laravelのインストール
 
+```
 $ composer create-project --prefer-dist laravel/laravel laravel
+$ sudo cp -a ~/laravel/. /var/www/laravel
+$ rm -rf ~/laravel
+```
+
+コピーに失敗したファイルは個別にコピーする。
+
+```
+$ sudo systemctl restart httpd
+```
+
+http://laravel.dev
+
