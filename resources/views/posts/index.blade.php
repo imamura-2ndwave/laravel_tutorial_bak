@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', '記事一覧')
-
 @section('app')
+
+<h1>記事一覧</h1>
 
 @foreach ($posts as $post)
     <ul>

@@ -14,6 +14,8 @@
 </head>
 <body>
     @yield('app')
+
+    {{ link_to_route('home', 'ホーム') }}
     @yield('javascripts')
 </body>
 </html>

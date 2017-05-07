@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'PostController@index');
+Route::get('/', 'PostController@index')->name('home');
 Route::resource('/posts', 'PostController');
