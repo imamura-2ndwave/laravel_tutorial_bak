@@ -31,10 +31,12 @@ yum -y install nodejs yarn
 
 cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.org
 cp /etc/php.ini /etc/php.ini.org
+cp /etc/my.cnf /etc/my.cnf.org
 
 \cp -f /vagrant/shell/config/etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf
 \cp -f /vagrant/shell/config/etc/httpd/conf.d/laravel.conf /etc/httpd/conf.d/laravel.conf
 \cp -f /vagrant/shell/config/etc/php.ini /etc/php.ini
+\cp -f /vagrant/shell/config/etc/my.cnf /etc/my.cnf
 
 systemctl start httpd
 systemctl enable httpd

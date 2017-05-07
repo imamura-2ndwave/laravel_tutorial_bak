@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "./shell", "/vagrant/shell", create: true, mount_options: ['dmode=777', 'fmode=775'], nfs: false
 
   # 共有フォルダ(インストール時はコメントアウト、インストール終了後にアンコメントする)
-  config.vm.synced_folder ".", "/var/www/laravel", create: true, owner: 'apache', group: 'apache', mount_options: ['dmode=777', 'fmode=775'], nfs: false
+  config.vm.synced_folder ".", "/var/www/laravel", create: true, owner: 'apache', group: 'apache', mount_options: ['dmode=777', 'fmode=777'], nfs: false
 
   # プロビジョン
   if ARGV.include? '--provision-with'

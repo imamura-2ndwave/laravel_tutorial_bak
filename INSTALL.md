@@ -167,12 +167,58 @@ EnableSendfile off
 
 `/var/www/laravel/public` ディレクトリは存在しないので、Laravelのインストール後にApacheを再起動する。
 
+### MySQL初期設定
+
+```
+$ cat /var/log/mysqld.log | grep 'temporary password' | awk -F ': ' '{print $NF}'
+$ mysql_secure_installation
+```
+
+### MySQLログイン＆データベース＆ユーザー作成
+
+```
+$ mysql -u root -pNetwork7932!
+> show variables like "%character%";
++--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | utf8                       |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | utf8                       |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+```
+
+```
+> CREATE DATABASE tutorial;
+> GRANT ALL PRIVILEGES ON laravel.* TO laravel@localhost IDENTIFIED BY 'Network7932!';
+```
+
+### .mylogin.cnf
+
+```
+$ mysql_config_editor set --user=laravel --password
+$ mysql_config_editor set --login-path=mysqldump --user=root --password
+$ mysql_config_editor print --all
+[client]
+user = gyb
+password = *****
+[mysqldump]
+user = root
+password = *****
+```
+
 ### Laravelのインストール
 
 ```
 $ composer create-project --prefer-dist laravel/laravel laravel
 $ sudo cp -a ~/laravel/. /var/www/laravel
 $ rm -rf ~/laravel
+$ ln -s /var/www/laravel ~/laravel
 ```
 
 コピーに失敗したファイルは個別にコピーする。
@@ -181,5 +227,18 @@ $ rm -rf ~/laravel
 $ sudo systemctl restart httpd
 ```
 
-http://laravel.dev
+### .env
 
+```
+DB_DATABASE=tutorial
+DB_USERNAME=laravel
+DB_PASSWORD=Network7932!
+```
+
+```
+$ php artisan key:generate
+```
+
+### 表示確認
+
+http://laravel.dev
